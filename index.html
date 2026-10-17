@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ETEscape — Fuga da Escola</title>
+  <!-- Fontes pixel (opcionais: sem internet o jogo usa fontes do sistema) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="palco" class="palco" data-tela="menu">
+    <div class="jogo">
+
+      <!-- Arte da cena (imagem ou sprite animado + efeitos) -->
+      <div class="arte" id="arte"><div class="arte-box" id="arte-box"></div></div>
+      <div class="meia-tinta"></div>
+      <div class="vinheta"></div>
+      <div class="perigo" id="perigo"></div>
+
+      <!-- Faixa de diálogo estilo quadrinhos -->
+      <div class="faixa so-jogo" id="faixa">
+        <div class="etiqueta-escolha" id="etiqueta">O QUE VOCÊ FAZ?</div>
+        <div class="texto narr" id="texto" hidden>
+          <span id="texto-conteudo"></span>
+          <i class="caret" id="caret" hidden>▼</i>
+        </div>
+        <div class="escolhas" id="escolhas"></div>
+      </div>
+      <img class="retrato so-jogo" id="retrato" alt="" src="">
+
+      <!-- Efeitos -->
+      <div class="sfx" id="sfx"></div>
+      <div class="menos" id="menos"></div>
+      <div class="flash" id="flash"></div>
+
+      <!-- HUD -->
+      <div class="hud">
+        <div class="tag-fase so-jogo" id="tag-fase"></div>
+        <div class="hud-dir">
+          <button class="btn-mini so-jogo" id="btn-olho" type="button" title="Esconder a interface (H)" aria-label="Ver a cena inteira">👁</button>
+          <button class="btn-mini" id="btn-som" type="button" title="Som (M)" aria-label="Ligar ou desligar o som">🔊</button>
+          <div class="relogio so-jogo parado" id="relogio" aria-live="off">
+            <div class="rot">TEMPO <span id="estado-relogio">PAUSADO</span></div>
+            <div class="t" id="tempo">05:00</div>
+            <div class="barra"><i id="barra-tempo"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cortina" id="cortina"></div>
+
+      <!-- Cartão de título de fase -->
+      <div class="cartao" id="cartao">
+        <div class="cartao-box">
+          <h2 id="cartao-t"></h2>
+          <p id="cartao-s"></p>
+        </div>
+      </div>
+
+      <!-- Minigame / puzzle -->
+      <div class="desafio" id="desafio"><div class="desafio-caixa" id="desafio-caixa"></div></div>
+
+      <!-- Menu -->
+      <div class="menu so-menu" id="menu">
+        <div class="subtitulo">FUGA DA ESCOLA</div>
+        <div class="menu-botoes">
+          <button class="btn-grande" id="btn-jogar" type="button">▶ JOGAR</button>
+          <button class="btn-grande sec" id="btn-como" type="button">COMO JOGAR</button>
+        </div>
+      </div>
+
+      <div class="como" id="como">
+        <div class="como-box">
+          <h2>COMO JOGAR</h2>
+          <ul>
+            <li><b>Objetivo:</b> escapar da escola em chamas antes que os <b>5 minutos</b> acabem.</li>
+            <li><b>Ler:</b> toque/clique na tela ou use <b>Espaço</b> / <b>Enter</b> para avançar o texto.</li>
+            <li><b>Escolher:</b> toque no botão ou aperte <b>1</b>, <b>2</b>, <b>3</b> ou <b>4</b>.</li>
+            <li><b>Tempo:</b> o relógio só corre enquanto você decide ou joga um desafio. Alguns erros custam <b>15 segundos</b>.</li>
+            <li><b>Cuidado:</b> certas escolhas fazem você voltar ao início da fase.</li>
+            <li><b>Dica:</b> o botão 👁 esconde o texto para você ver a cena inteira.</li>
+          </ul>
+          <button class="btn-grande" id="btn-como-fechar" type="button">ENTENDI</button>
+        </div>
+      </div>
+
+      <!-- Tela final -->
+      <div class="final" id="final">
+        <div class="final-box" id="final-box">
+          <h2 id="final-t"></h2>
+          <p id="final-p"></p>
+          <p class="final-tempo" id="final-tempo"></p>
+          <div class="final-botoes">
+            <button class="btn-grande" id="btn-de-novo" type="button">↻ JOGAR DE NOVO</button>
+            <button class="btn-grande sec" id="btn-menu" type="button">MENU</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="moldura"></div>
+    </div>
+  </div>
+
+  <div id="girar" class="girar">
+    <div class="girar-icone">📱↻</div>
+    <p>Gire o celular para o modo deitado (horizontal) para jogar.<br>O tempo fica pausado até você girar.</p>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
